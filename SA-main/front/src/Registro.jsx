@@ -34,13 +34,14 @@ export default function Registro() {
     }, [])
 
     return (
-        <div className='inicial_tela'>
+        <div className='registro_tela'>
             <h1>EPI Center</h1>
-            <div>
-                <form >
-                    <div>
+            <div className='registro_form_container'>
+                <form className='registro_form'>
+                    <div className='registro_form_group'>
                         <label>Funcionário:</label>
                         <select
+                            className='registro_form_select'
                             value={nomeFuncionario}
                             onChange={(e) => setNomeFuncionario(e.target.value)}
                             required
@@ -53,9 +54,10 @@ export default function Registro() {
                             ))}
                         </select>
                     </div>
-                    <div>
+                    <div className='registro_form_group'>
                         <label>EPI:</label>
                         <select
+                            className='registro_form_select'
                             value={nomeEPI}
                             onChange={(e) => setNomeEPI(e.target.value)}
                             required
@@ -68,27 +70,29 @@ export default function Registro() {
                             ))}
                         </select>
                     </div>
-                    <div>
+                    <div className='registro_form_group'>
                         <label>Quantidade:</label>
                         <input
+                            className='registro_form_input'
                             type="number"
                             value={qtd}
                             onChange={(e) => setQtd(e.target.value)}
                             required
                         />
                     </div>
-                    <div>
+                    <div className='registro_form_group'>
                         <label>Data:</label>
                         <input
+                            className='registro_form_input'
                             type="date"
                             value={data}
                             onChange={(e) => setData(e.target.value)}
                             required
                         />
                     </div>
-                    <button type="submit">Entrar</button>
+                    <button className='registro_form_button' type="submit">Entrar</button>
                 </form>
             </div>
         </div>
-    )
+    );
 }

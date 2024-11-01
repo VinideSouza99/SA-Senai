@@ -26,7 +26,6 @@ function CadastrarFuncionario() {
             setTelefone('')
             setMatricula('')
         } catch (error) {
-            console.error("Erro ao cadastrar funcionario:", error)
             setMensagem('Erro ao cadastrar funcionario')
         }
     }
@@ -69,27 +68,50 @@ function CadastrarFuncionario() {
             <form onSubmit={cadastro_funcionario} className="cadastrar-form">
                 <div>
                     <label>Nome:</label>
-                    <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} required />
+                    <input 
+                        type="text" 
+                        value={nome} 
+                        onChange={(e) => setNome(e.target.value)} 
+                        required />
                 </div>
                 <div>
                     <label>Senha:</label>
-                    <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} required />
+                    <input 
+                        type="password" 
+                        value={senha} 
+                        onChange={(e) => setSenha(e.target.value)} 
+                        required />
                 </div>
                 <div>
                     <label>Email:</label>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input 
+                        type="text" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        required />
                 </div>
                 <div>
                     <label>Telefone:</label>
-                    <input type="number" value={telefone} onChange={(e) => setTelefone(e.target.value)} required />
+                    <input 
+                        type="number" 
+                        value={telefone} 
+                        onChange={(e) => setTelefone(e.target.value)} 
+                        required />
                 </div>
                 <div>
                     <label>Setor:</label>
-                    <input type="text" value={setor} onChange={(e) => setSetor(e.target.value)} required />
+                    <input 
+                        type="text" 
+                        value={setor} 
+                        onChange={(e) => setSetor(e.target.value)} 
+                        required />
                 </div>
                 <div>
                     <label>Matricula:</label>
-                    <input type="text" value={id} onChange={(e) => setMatricula(e.target.value)} />
+                    <input 
+                        type="text" 
+                        value={id} 
+                        onChange={(e) => setMatricula(e.target.value)} />
                 </div>
 
                 <div className="cadastrar-buttons">

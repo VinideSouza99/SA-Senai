@@ -14,10 +14,9 @@ function Home() {
 
         try {
             const response = await axios.post('http://localhost:3000/login', { email, senha })
-            // Supondo que o backend retorne um status de sucesso
             if (response.data.success) {
                 setMensagem('Login bem-sucedido!')
-                navigate('/princpal')
+                navigate('/principal')
             }
         } catch (error) {
             console.error(error)

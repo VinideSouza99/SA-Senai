@@ -7,7 +7,7 @@ export default function Funcionarios() {
 
     const carregarFuncionarios = async () => {
         const response = await axios.get(`http://localhost:3000/funcionarios`)
-        setFuncionarios(Object.values(response.data.listaFuncionarios))
+        setFuncionarios(Object.values(response.data))
         console.log(response.data)
     }
 

@@ -5,14 +5,13 @@ import { useParams } from 'react-router-dom'
 export default function FuncionarioDetalhes() {
     
     const { id } = useParams()
-    const [funcionario, setFuncionario] = useState(null)
-    const [error, setError] = useState(null)
+    const [funcionario, setFuncionario] = useState('')
+    const [error, setError] = useState('')
 
     const carregarFuncionario = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/funcionario/${id}`);
+            const response = await axios.get(`http://localhost:3000/funcionario/${id}`)
             setFuncionario(response.data)
-            console.log(response.data)
         } catch (error) {
             setError('Erro ao carregar funcionário');
             console.error('Erro ao carregar funcionário:', error.response || error)
@@ -20,7 +19,7 @@ export default function FuncionarioDetalhes() {
     }
 
     useEffect(() => {
-        carregarFuncionario();
+        carregarFuncionario()
     }, [id])
 
 

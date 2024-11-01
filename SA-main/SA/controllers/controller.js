@@ -107,8 +107,8 @@ const relatorio = async (req, res) => {
 
 const funcionarios = async (req, res) => {
     try {
-        const listaFuncionarios = await FUNCIONARIO.findAll() // Busca todos os funcionários
-        res.status(200).send({ listaFuncionarios })
+        const listaFuncionarios = await FUNCIONARIO.findAll()
+        res.status(200).send(listaFuncionarios)
     } catch (erro) {
         res.status(500).send({ mensagem: 'Erro ao buscar funcionários' })
     }
@@ -128,11 +128,25 @@ const funcionario = async (req, res) => {
     }
 }
 
+const epi = async (req, res) => {
+    const { id } = req.params
+    try {
+        const epiEncontrado = await EPI.findByPk(id)
+        if (!epiEncontrado) {
+            return res.status(404).send({ mensagem: 'EPI não encontrado' })
+        }
+        res.status(200).send(epiEncontrado)
+    } catch (erro) {
+        console.error(erro)
+        res.status(500).send({ mensagem: 'Erro ao buscar EPI' })
+    }
+}
+
 
 const epis = async (req, res) => {
     try {
-        const listaEPIs = await EPI.findAll() // Busca todos os EPIs
-        res.status(200).send({ listaEPIs })
+        const listaEPIs = await EPI.findAll()
+        res.status(200).send(listaEPIs)
     } catch (erro) {
         res.status(500).send({ mensagem: 'Erro ao buscar funcionários' })
     }
@@ -202,4 +216,4 @@ const apagarEpi = async (req, res) => {
     }
 }
 
-export { cadastrarEPI, cadastrarFuncionario, login, funcionarios, funcionario, validarSenha, relatorio, epis, atualizarFuncionario, apagarFuncionario, atualizarEpi, apagarEpi }
+export { cadastrarEPI, cadastrarFuncionario, login, funcionarios, funcionario, validarSenha, relatorio, epis, epi, atualizarFuncionario, apagarFuncionario, atualizarEpi, apagarEpi }

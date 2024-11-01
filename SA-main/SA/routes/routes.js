@@ -1,13 +1,14 @@
 import express from 'express'
 import {
     cadastrarEPI, cadastrarFuncionario, login, funcionarios, epis,
-    atualizarFuncionario, apagarFuncionario, validarSenha, atualizarEpi, apagarEpi, funcionario
+    atualizarFuncionario, apagarFuncionario, validarSenha, epi, atualizarEpi, apagarEpi, funcionario
 } from '../controllers/controller.js'
 const router = express.Router()
 
 router.post('/cadastro_funcionario', cadastrarFuncionario)
 router.get('/funcionarios', funcionarios)
 router.get('/funcionario/:id', funcionario)
+router.get('/epi/:id', epi)
 router.post('/login', login)
 router.put('/atualizar_funcionario/:id', atualizarFuncionario)
 router.delete('/apagar_funcionario/:id', apagarFuncionario)
